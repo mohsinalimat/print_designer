@@ -5,10 +5,11 @@ class PrintDesigner {
 	constructor({ wrapper, print_format }) {
 		this.$wrapper = $(wrapper);
 		this.print_format = print_format;
+		const mountTarget = this.$wrapper.find(".layout-main-section").get(0) || this.$wrapper.get(0);
 		this.app = createApp(Designer, { print_format_name: this.print_format });
 		this.app.use(createPinia());
 		SetVueGlobals(this.app);
-		this.app.mount(this.$wrapper.get(0));
+		this.app.mount(mountTarget);
 		const headerContainer = document.querySelector("header .container");
 		if (headerContainer) {
 			headerContainer.style.width = "100%";
