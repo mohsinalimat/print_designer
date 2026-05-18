@@ -178,9 +178,6 @@ const load_print_designer = async (wrapper) => {
 		if (is_print_format) {
 			await set_current_doc(route[1]);
 			await frappe.require("print_designer.bundle.js");
-			if (frappe.print_designer?.print_format === route[1] && frappe.print_designer?.app) {
-				return;
-			}
 			frappe.print_designer?.destroy?.();
 			frappe.print_designer = new frappe.ui.PrintDesigner({
 				wrapper: $parent,
