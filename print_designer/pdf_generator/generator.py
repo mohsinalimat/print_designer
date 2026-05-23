@@ -27,7 +27,8 @@ class FrappePDFGenerator:
 		self._browsers.append(browser)
 
 	def remove_browser(self, browser):
-		self._browsers.remove(browser)
+		if browser in self._browsers:
+			self._browsers.remove(browser)
 
 	def __new__(cls):
 		# if instance or _chromium_process is not available create object else return current instance stored in cls._instance
